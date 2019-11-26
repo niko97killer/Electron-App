@@ -1,20 +1,64 @@
+//Importamos el modulo fs que nos permitira gestionar ficheros locales
+const fs = require('fs')
+
 let console_style = "padding: 20px; font-weight: 900;";
 
 let MainContainer;
 
+let colors = [
+    "#9b59b6",
+    "#2471a3",
+    "#1abc9c",
+    "#2ecc71",
+    "#f1c40f",
+    "#dc7633",
+    "#e74c3c"
+];
+
 $(document).ready(async() => {
     console.log("%cApp ready form execute stufs", console_style);
     MainContainer = $('#main');
-    MainContainer.append(`<p>App infrastructure ready.</p>`);
+    MainContainer.append(`<h3>App infrastructure ready.</h3>`);
 
-    let first_message = await initApp();
-    MainContainer.append(`<p>${first_message}</p>`);
+    var ul = $('<ul/>');
+    MainContainer.append(ul);
+
+    let folder_data = await initApp();
+    console.log(folder_data);
+    //MainContainer.append(`<p>Carpeta leeida...</p>`);
+
+    folder_data.forEach(async(elem) => {
+        var li = $('<li/>').text(elem).css('color', colors[Math.floor(Math.random() * colors.length)]);
+        if (elem.includes(".")) {
+            li.prepend(`<i class="material-icons">insert_drive_file</i>`);
+        } else {
+            li.prepend(`<i class="material-icons">folder</i>`);
+        }
+
+        let file_stats = await getNodeData(elem);
+        li.append(`<div>${JSON.stringify(file_stats)}</div>`);
+        li.hide();
+        ul.append(li);
+        li.show('slow');
+    })
 });
+
+async function getNodeData(path) {
+    return new Promise((res, rej) => {
+        fs.stat(path, (err, stats) => {
+            res(stats);
+        })
+    });
+}
 
 async function initApp() {
     return new Promise((res, rej) => {
-        setTimeout(() => {
-            res('Inicializacion de la app terminada');
-        }, 2000);
+        fs.readdir('./', (err, data) => {
+
+            setTimeout(() => {
+                res(data);
+            }, 10);
+        });
+
     });
 }

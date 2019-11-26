@@ -13,7 +13,29 @@ body {
     margin: 0px auto;
     background: #1b212c;
     min-height: 100vh;
-    padding: 20px 10px;
+    padding: 20px 30px;
     color: #99a3b8;
     font-size: 14px;
+}
+
+.material-icons {
+    margin-right: 10px;
+    font-size: 14px !important;
+    vertical-align: middle;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+    border: 0.5px solid #99a3b8;
+    min-height: 150px;
+}
+
+li {
+    padding: 0px 10px;
+}
+
+li:hover {
+    background: #ccc;
 }
