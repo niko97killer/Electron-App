@@ -1,0 +1,182 @@
+{
+  "AccessStatus": {
+    "Denied": "Denegado",
+    "Granted": "Permitido",
+    "NoData": "Sin determinar"
+  },
+  "Action": {
+    "Accept": "Aceptar",
+    "Update": "Actualizar",
+    "Delete": "Eliminar",
+    "Cancel": "Cancelar",
+    "Quit": "Salir",
+    "QuitApp": "Se dispone a salir de la aplicación, ¿salir?",
+    "OfflineAction": "Esta acción requiere de conexión a internet"
+  },
+  "Alert": {
+    "Alert": "Aviso",
+    "ConnectionFail": "Conexión fallida, inténtalo de nuevo",
+    "RequestFail": "No ha sido posible realizar la petición, inténtalo de nuevo",
+    "LogOff": "¿Seguro que desea cerrar la sesión?",
+    "RegistrySent": "Registro enviado",
+    "RequiredField": "El campo {{field}} es obgligatorio. Cumplimentalo para continuar",
+    "RequiredFieldNameSurname": "El campo nombre es obgligatorio si se pone un apellido y viceversa. Cumplimentalo para continuar",
+    "ElementNotFound": "No hay correspondencia de elemento con el QR"
+  },
+  "Button": {
+    "checkStart": "Marcar inicio",
+    "checkEnd": "Marcar final",
+    "nextButton": "Entrar"
+  },
+  "CameraButtons": {
+    "takePhotoLabel": "Si lo deseas, añade una o varias fotografías que apoyen tu testimonio. Pulsa sobre una para eliminarla.",
+    "takePhoto": "Tomar foto",
+    "takeFile": "Cargar de archivo"
+  },
+  "CentroScreen": {
+    "centroTitle": "Centro",
+    "buscarElemento": "Buscar elemento ...",
+    "SecurityVisitStartDialogContent": "¿Quieres comenzar una nueva visita de seguridad?",
+    "SecurityVisitActionDialogContent": "¿Que quieres realizar con la visita de seguridad en curso?",
+    "ViewSecurityVisitItems": "Ver / Modificar visita",
+    "FinishVisit": "Finalizar y enviar visita",
+    "SecurityVisitDeleteConfirmation": "Vas a eliminar la visita de seguridad. No podrás recuperar los datos de la visita. ¿Continuar?",
+    "DiscardVisit": "Descartar y eliminar visita"
+  },
+  "ConnectionStatus": {
+    "DeviceNotConnected": "El dispositivo está sin conexión",
+    "DeviceConnected": "El dispositivo está conectado"
+  },
+  "CustomPicker": {
+    "defaultPickerPlaceholder": "Selecciona un valor",
+    "defaultPlaceholder": "Escribe aquí para buscar ...",
+    "noTitle": ""
+  },
+  "ElementInfoField": {
+    "NoData": "Ninguno"
+  },
+  "ElementList": {
+    "noResultsFound": "No se han encontrado resultados"
+  },
+  "ElementScreen": {
+    "elementTitle": "Centro"
+  },
+  "ElementType": {
+    "All": "Todos los tipos",
+    "Worker": "Trabajador",
+    "Workers": "Trabajadores",
+    "Machine": "Maquinaria",
+    "Machines": "Maquinaria",
+    "Vehicle": "Vehículo",
+    "Vehicles": "Vehículos",
+    "ChemicalProduct": "PQ",
+    "ChemicalProducts": "PQs",
+    "Company": "Empresa",
+    "Center": "Centro"
+  },
+  "HelpScreen": {
+    "title": "Ayuda"
+  },
+  "Label": {
+    "requiredFieldLabel": "Los campos marcados con * son obligatorios"
+  },
+  "Lang": {
+    "Code": "es-ES",
+    "Name": "Español (ES)"
+  },
+  "LoginScreen": {
+    "user": "Usuario",
+    "ValidateRequiredUser": "El usuario es obligatorio",
+    "password": "Contraseña",
+    "ValidateRequiredPassword": "La contraseña es obligatoria",
+    "instance": "Instancia",
+    "ValidateRequiredInstance": "La instancia es obligatoria",
+    "LoginDataIncorrect": "Los datos de login no son correctos",
+    "IHaveNotAccount": "No tengo una cuenta",
+    "IHaveNotAccountMessage" : "No podrás utilizar e-pocket si no tienes una cuenta de e-coordina con e-pocket activado. \n\nContacta con nosotros para crear una cuenta."
+  },
+  "PrlTerms": {
+    "RiskCommunicationAbbreviation": "CR",
+    "SecurityVisitAbbreviation": "VS",
+    "SafeWorkProcedureAbbreviation": "PTS",
+    "InExecution": "En ejecución"
+  },
+  "ProcedureTaskScreen": {
+    "ProcedureTaskTitle": "Procedimiento de trabajo seguro",
+    "ProcedureTaskPhoto": "Tomar foto",
+    "TaskInstructions": "Pulsa sobre cada una de las tareas para indicar que la has completado.",
+    "TaskInstructionsOrder": "Debes completar las tareas en el orden indicado.",
+    "TaskInstructionsCamera": "Algunas tareas requieren de evidencias gráficas (pulsa sobre la cámara)",
+    "takePhoto": "Subir evidencia",
+    "ValidationCheckAllItems": "Tienes que completar todos los puntos para enviar el PTS"
+  },
+  "RiskCommunicationScreen": {
+    "title": "Comunicación de riesgo",
+    "inputInvolvedCompany": "Empresa involucrada",
+    "DeletePhotoConfirmation": "¿Quieres elminar esta fotografía?",
+    "takePhoto": "Subir evidencia",
+    "obervationsLabel": "Observaciones"
+  },
+  "SafeWorkProcedureSelectorScreen": {
+    "title": "Procedimiento de trabajo seguro",
+    "searchSWP": "Buscar un PTS"
+  },
+  "SecurityVisitItem": {
+    "observations": "Observaciones",
+    "correctiveMeassures": "Medidas",
+    "photolist": "Evidencias gráficas"
+  },
+  "SecurityVisitItemListScreen": {
+    "title": "Visita de seguridad en ejecución",
+    "subtitle": "Listado de registros",
+    "elementPressAlertDialog": "Selecciona la acción que quieres realizar sobre este registro",
+    "deleteConfirmDialog": "¿Seguro que quieres eliminar el registro?"
+  },
+  "SecurityVisitScreen": {
+    "title": "Visita de seguridad",
+    "insert": "Nuevo registro",
+    "update": "Actualizar",
+    "obervationsLabel": "Detalla tus observaciones",
+    "obervationsError": "de observaciones",
+    "correctiveMeasuresLabel": "Detalla las medidas propuestas",
+    "correctiveMeasuresError": "de las medidas propuestas",
+    "DeletePhotoConfirmation": "¿Quieres elminar esta fotografía?",
+    "takePhoto": "Subir evidencia",
+    "takePhotoLabel": "Si lo deseas, añade una o varias fotografías que apoyen tu testimonio. Pulsa sobre una para eliminarla."
+  },
+  "SecurityVisitSendScreen": {
+    "title": "Enviar visita de seguridad",
+    "observationsLabel": "Si lo estimas oportuno, añade tus observaciones",
+    "companionsLabel": "Indica los nombres y apellidos de las personas que te han acompañado en esta visita de seguridad",
+    "namePlaceholder": "Nombre",
+    "surnamePlaceholder": "Apellidos"
+  },
+  "SeleccionCentroScreen": {
+    "selectCentro": "Centros disponibles",
+    "buscarCentro": "Buscar centro..."
+  },
+  "SideMenu": {
+    "NotSentElements": "Elementos sin enviar",
+    "LastUpdateDate": "Sincronizado el ",
+    "AllElementsSyncronized": "Se han sincronizado todos los elementos",
+    "CenterSyncSucceed": "Centro sincronizado correctamente",
+    "CenterSyncFail": "Error sincronizando el centro",
+    "SyncCenter": "Sincronizar centro"
+  },
+  "Spinner": {
+    "Loading": "Cargando",
+    "DownloadingData": "Descargando datos"
+  },
+  "SystemError": {
+    "DatabaseError": "Error crítico en la base de datos",
+    "WsConnectionError": "Error de conexión con e-coordina. Vuelva a intentarlo."
+  },
+  "Terms": {
+    "AccessStatus": "Estado del acceso",
+    "RelevantDocumentation": "Documentación relevante",
+    "PendingDocumentation": "Documentación pendiente",
+    "JobPosition": "Puesto",
+    "JobPositions": "Puestos",
+    "CAE": "CAE"
+  }
+}
