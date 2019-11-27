@@ -15,6 +15,8 @@ let colors = [
     "#e74c3c"
 ];
 
+let clickedElem = null;
+
 $(document).ready(async() => {
     console.log("%cApp ready form execute stufs", console_style);
     MainContainer = $('#main');
@@ -23,12 +25,21 @@ $(document).ready(async() => {
     var ul = $('<ul/>');
     MainContainer.append(ul);
 
+    $('body').mousemove(function(event) {
+        if (clickedElem != null) {
+            let x = event.pageX - (clickedElem.width() / 2);
+            let y = (event.pageY - $(window).scrollTop()) - (clickedElem.height() / 2)
+            clickedElem.css({ left: x, top: y });
+            console.log(event.pageX);
+        }
+    });
+
     let folder_data = await initApp();
     console.log(folder_data);
     //MainContainer.append(`<p>Carpeta leeida...</p>`);
 
     folder_data.forEach(async(elem) => {
-        var li = $('<li/>').text(elem).css('color', colors[Math.floor(Math.random() * colors.length)]);
+        var li = $('<li/>').text(elem).css('color', colors[Math.floor(Math.random() * colors.length)]) //.css('border-bottom', '1px solid #ccc');
         if (elem.includes(".")) {
             li.prepend(`<i class="material-icons">insert_drive_file</i>`);
         } else {
@@ -36,8 +47,28 @@ $(document).ready(async() => {
         }
 
         let file_stats = await getNodeData(elem);
-        li.append(`<div>${JSON.stringify(file_stats)}</div>`);
+        console.log(file_stats);
+        let stats_list = $('<ul/>').css('border', 'none').css('color', '#fff');
+
+        for (index in file_stats) {
+            let stat_elem = $('<li/>').html(`<strong>${index}</strong> : ${file_stats[index]}`).css('border-bottom', '1px solid #ccc')
+            stats_list.append(stat_elem);
+        }
+
+        //li.append(stats_list);
         li.hide();
+        li.data("musecliked", false);
+        li.mousedown(function() {
+            $(this).data("musecliked", true)
+            console.log($(this).data());
+            clickedElem = $(this);
+            clickedElem.addClass('clikado');
+        }).mouseup(function() {
+            $(this).data("musecliked", false)
+            console.log($(this).data());
+            clickedElem.removeClass('clikado');
+            clickedElem = null;
+        });
         ul.append(li);
         li.show('slow');
     })

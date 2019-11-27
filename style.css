@@ -30,6 +30,7 @@ ul {
     padding: 10px;
     border: 0.5px solid #99a3b8;
     min-height: 150px;
+    position: relative;
 }
 
 li {
@@ -37,5 +38,14 @@ li {
 }
 
 li:hover {
-    background: #ccc;
+    background: #272f3f;
+}
+
+.clikado {
+    width: 60%;
+    position: fixed !important;
+    background: #000 !important;
+    z-index: 20;
+    border-radius: 5px;
+    box-shadow: 0px 0px 17px 5px rgba(255, 255, 255, 1);
 }
