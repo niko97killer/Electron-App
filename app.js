@@ -27,7 +27,7 @@ $(document).ready(async() => {
 
     $('body').mousemove(function(event) {
         if (clickedElem != null) {
-            let x = event.pageX - (clickedElem.width() / 2);
+            let x = event.pageX - (clickedElem.width() / 3);
             let y = (event.pageY - $(window).scrollTop()) - (clickedElem.height() / 2)
             clickedElem.css({ left: x, top: y });
             console.log(event.pageX);
@@ -58,11 +58,15 @@ $(document).ready(async() => {
         //li.append(stats_list);
         li.hide();
         li.data("musecliked", false);
-        li.mousedown(function() {
+        li.mousedown(function(event) {
             $(this).data("musecliked", true)
             console.log($(this).data());
             clickedElem = $(this);
             clickedElem.addClass('clikado');
+
+            let x = event.pageX - (clickedElem.width() / 3);
+            let y = (event.pageY - $(window).scrollTop()) - (clickedElem.height() / 2)
+            clickedElem.css({ left: x, top: y });
         }).mouseup(function() {
             $(this).data("musecliked", false)
             console.log($(this).data());
