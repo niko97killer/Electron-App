@@ -3,7 +3,7 @@ const fs = require('fs')
 
 let console_style = "padding: 20px; font-weight: 900;";
 
-let MainContainer;
+let MainContainer, Folio;
 
 let colors = [
     "#9b59b6",
@@ -77,6 +77,27 @@ $(document).ready(async() => {
         li.show('slow');
     })
 });
+
+async function abrirFolioEdicion() {
+    MainContainer.hide();
+    Folio = $('<div/>', {
+        class: 'folio',
+        mousedown: function(e) {
+            console.log(Folio.offsetLeft);
+            let elem = $('<div/>', {
+                class: 'begin_elem',
+                css: {
+                    top: e.clientY - 50,
+                    left: e.clientX - 50 - Folio.offset().left
+                }
+            });
+            console.log(elem);
+            Folio.append(elem);
+        }
+    });
+    $('body').css('background', '#ccc');
+    $('body').append(Folio);
+}
 
 async function getNodeData(path) {
     return new Promise((res, rej) => {
