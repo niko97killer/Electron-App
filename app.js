@@ -4,6 +4,10 @@ const { BrowserWindow } = require('electron')
 
 let console_style = "padding: 20px; font-weight: 900;";
 
+let loading_elem = $('<div/>', {
+    class: "loading_element"
+})
+
 let MainContainer,
     Folio,
     SubWindow,
@@ -92,7 +96,10 @@ async function loadAppPrueba() {
 async function loadApp() {
     let loading_res = await showLoader();
 
-    createLeftMenu();
+    createLeftMenu().then((res) => {
+        MenuEditor.children('.editor_contenedor').children('.loading_element').remove();
+        MenuEditor.children('.editor_contenedor').children('.editor-menu-opt').show();
+    });
     //abrirFolioEdicion();
 }
 
@@ -118,13 +125,57 @@ async function showLoader() {
 }
 
 async function createLeftMenu() {
-    menuConfig.forEach(elem => {
-        let el = $('<div/>', {
-            class: 'editor-menu-opt',
-            text: elem.name
-        })
-        MenuEditor.children('.editor_contenedor').append(el)
+    return new Promise((res, rej) => {
+        fs.readFile('./appData/left_menu.json', 'utf8', (err, data) => {
+            if(err) throw err;
+            console.log(data);
+            menuConfig = JSON.parse(data);
+            
+            menuConfig.forEach(elem => {
+                let el = $('<div/>', {
+                    class: 'editor-menu-opt',
+                    text: elem.name,
+                    
+                })
+
+                MenuEditor.children('.editor_contenedor').append(el)
+                
+                if(elem.hasOwnProperty('items')) {
+                    let items_container = $('<div/>', {
+                        data: {
+                            container: elem.name
+                        },
+                        class: "items_container"
+                    })
+                    el.click(() => {
+                        items_container.toggle('slow');
+                    });
+                    MenuEditor.children('.editor_contenedor').append(items_container)
+
+                    elem.items.forEach(elem => {
+                        let it = $('<div/>', {
+                            class: 'selectable-item',
+                            click: function() {
+
+                            },
+                            css: {
+                                backgroundImage: `url(${elem.avatar})`
+                            }
+                        });
+                        items_container.append(it);
+                    });
+                }
+                
+                
+            });
+            setTimeout(() => {
+                res(1);
+            }, 500);
+        });
+
+        
     });
+    
 }
 
 async function abrirFolioEdicion() {
@@ -133,7 +184,7 @@ async function abrirFolioEdicion() {
     });
 
     MenuEditor = $('<div/>', { class: 'editor_left_menu' });
-    MenuEditor.append($('<div/>', { class: 'editor_contenedor' }));
+    MenuEditor.append($('<div/>', { class: 'editor_contenedor' }).append(loading_elem));
 
     let FolioEdicion = $('<div/>', { class: 'editor_folio_edicion' });
     FolioEdicion.append($('<div/>', { class: 'editor_contenedor' }).append(`<div id="start_message">

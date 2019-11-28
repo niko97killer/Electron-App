@@ -134,7 +134,16 @@ li:hover {
     transform: translate(-50%, -50%);
 }
 
+@keyframes widht_animation {
+    0% {
+        opacity: 0;
+    }100% {
+        opacity: 1;
+    }
+}
+
 .editor-menu-opt {
+    overflow: hidden;
     width: 100%;
     padding: 10px;
     border-bottom: 1px solid #dadada;
@@ -146,8 +155,41 @@ li:hover {
     background-size: 10px;
     cursor: pointer;
     transition: .1s;
+    display: none;
+    animation: widht_animation .3s ease-in;
 }
 
 .editor-menu-opt:hover {
     background-position: 15px 50%;
+}
+
+.loading_element {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    background: url('https://i.gifer.com/ZlXo.gif');
+    background-position: center;
+    background-size: 50px;
+}
+
+.selectable-item {
+    width: 100px;
+    height: 100px;
+    background-position: center;
+    background-size: 60px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    transition: .3s ease-in-out;
+}
+
+.selectable-item:hover {
+    transform: skewY(5deg);
+}
+
+.items_container {
+    border-bottom: 1px solid #dadada;
 }

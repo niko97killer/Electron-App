@@ -1,5 +1,17 @@
 [
-    { "name": "Basics" },
+    { 
+        "name": "Basics",
+        "items" : [
+            { 
+                "name": "Basic DIV",
+                "elem": "<div/>",
+                "initial_css" : {
+
+                },
+                "avatar": "http://pngimg.com/uploads/box/box_PNG78.png"
+            }
+        ]
+    },
     { "name": "Beggining Items" },
     { "name": "Containers" },
     { "name": "Floating Items" },
