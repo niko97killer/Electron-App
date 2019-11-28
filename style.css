@@ -4,8 +4,17 @@
 
 body {
     margin: 0px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /*font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;*/
+    font-family: 'Rubik', sans-serif;
 }
+
+
+/*
+ *  Possible colore Palets
+ *  https://colorhunt.co/palette/157179
+ *  https://colorhunt.co/palette/163897
+ *  https://colorhunt.co/palette/152232
+*/
 
 #main {
     width: 100%;
@@ -54,7 +63,7 @@ li:hover {
     max-width: 1000px;
     min-height: 100vh;
     margin: 0px auto;
-    background: #fff; 
+    background: #fff;
     position: relative;
 }
 
@@ -63,4 +72,61 @@ li:hover {
     border: 1px solid #ccc;
     width: 100px;
     height: 100px;
+}
+
+.editor_main {
+    width: 100%;
+    display: flex;
+    background: #fff;
+}
+
+.editor_left_menu {
+    width: 25%;
+    height: 100vh;
+    overflow-y: auto;
+    border-right: 1px solid #dadada;
+}
+
+.editor_folio_edicion {
+    width: 75%;
+    height: 100vh;
+    overflow-y: auto;
+    background: #fff7f7;
+}
+
+.editor_contenedor {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+#start_message {
+    font-size: 30px;
+    width: 400px;
+    font-weight: 900;
+    color: #dadada;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+#start_message>i {
+    font-size: 50px !important;
+    color: #08ffc8;
+}
+
+.loading-panel {
+    font-size: 30px;
+    width: 400px;
+    font-weight: 900;
+    color: #dadada;
+    background: #204969;
+    padding: 0px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
 }

@@ -1,9 +1,13 @@
 //Importamos el modulo fs que nos permitira gestionar ficheros locales
 const fs = require('fs')
+const { BrowserWindow } = require('electron')
 
 let console_style = "padding: 20px; font-weight: 900;";
 
-let MainContainer, Folio;
+let MainContainer,
+    Folio,
+    SubWindow,
+    EditorMain;
 
 let colors = [
     "#9b59b6",
@@ -18,6 +22,10 @@ let colors = [
 let clickedElem = null;
 
 $(document).ready(async() => {
+    loadApp();
+});
+
+async function loadAppPrueba() {
     console.log("%cApp ready form execute stufs", console_style);
     MainContainer = $('#main');
     MainContainer.append(`<h3>App infrastructure ready.</h3>`);
@@ -76,14 +84,55 @@ $(document).ready(async() => {
         ul.append(li);
         li.show('slow');
     })
-});
+}
+
+async function loadApp() {
+    let loading_res = await showLoader();
+
+    abrirFolioEdicion();
+}
+
+let loadingPanel = $('<div/>', { class: 'loading-panel', text: 'Loading Content' });
+
+async function showLoader() {
+    return new Promise((res, rej) => {
+        $('body').append(loadingPanel);
+
+        loadingPanel.animate({
+            padding: "20"
+        }, 2000, () => {
+            loadingPanel.hide();
+            res(1);
+        });
+        //setTimeout(() => {
+        //    
+        //    res(1);
+        //}, 2000);
+    });
+}
 
 async function abrirFolioEdicion() {
-    MainContainer.hide();
+    EditorMain = $('<div/>', {
+        class: 'editor_main'
+    });
+
+    let MenuEditor = $('<div/>', { class: 'editor_left_menu' });
+    MenuEditor.append($('<div/>', { class: 'editor_contenedor' }));
+
+    let FolioEdicion = $('<div/>', { class: 'editor_folio_edicion' });
+    FolioEdicion.append($('<div/>', { class: 'editor_contenedor' }).append(`<div id="start_message">
+                                                                            <i class="material-icons">add_comment</i><br>
+                                                                            Selecciona los componentes de la izquierda para empezar a diseñar
+                                                                            </div>`));
+
+    EditorMain.append(MenuEditor);
+    EditorMain.append(FolioEdicion);
+
+    //MainContainer.hide();
     Folio = $('<div/>', {
         class: 'folio',
         mousedown: function(e) {
-            console.log(Folio.offsetLeft);
+            console.log(Folio.offset().left);
             let elem = $('<div/>', {
                 class: 'begin_elem',
                 css: {
@@ -96,7 +145,7 @@ async function abrirFolioEdicion() {
         }
     });
     $('body').css('background', '#ccc');
-    $('body').append(Folio);
+    $('body').append(EditorMain);
 }
 
 async function getNodeData(path) {

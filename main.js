@@ -11,6 +11,9 @@ function createWindow() {
     mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
+        frame: true,
+        title: 'Lets Make HTML',
+        autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: true,
             preload: path.join(__dirname, 'preload.js')
@@ -30,6 +33,8 @@ function createWindow() {
         // when you should delete the corresponding element.
         mainWindow = null
     })
+
+
 }
 
 // This method will be called when Electron has finished
