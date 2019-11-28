@@ -20,14 +20,7 @@ let colors = [
     "#e74c3c"
 ];
 
-let menuConfig = [
-    { name: "Beggining Items" },
-    { name: "Containers" },
-    { name: "Floating Items" },
-    { name: "Animated Items" },
-    { name: "Text Items" },
-    { name: "More..." }
-];
+let menuConfig;
 
 let clickedElem = null;
 
