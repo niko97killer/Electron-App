@@ -7,7 +7,8 @@ let console_style = "padding: 20px; font-weight: 900;";
 let MainContainer,
     Folio,
     SubWindow,
-    EditorMain;
+    EditorMain,
+    MenuEditor;
 
 let colors = [
     "#9b59b6",
@@ -17,6 +18,15 @@ let colors = [
     "#f1c40f",
     "#dc7633",
     "#e74c3c"
+];
+
+let menuConfig = [
+    { name: "Beggining Items" },
+    { name: "Containers" },
+    { name: "Floating Items" },
+    { name: "Animated Items" },
+    { name: "Text Items" },
+    { name: "More..." }
 ];
 
 let clickedElem = null;
@@ -89,7 +99,8 @@ async function loadAppPrueba() {
 async function loadApp() {
     let loading_res = await showLoader();
 
-    abrirFolioEdicion();
+    createLeftMenu();
+    //abrirFolioEdicion();
 }
 
 let loadingPanel = $('<div/>', { class: 'loading-panel', text: 'Loading Content' });
@@ -100,14 +111,26 @@ async function showLoader() {
 
         loadingPanel.animate({
             padding: "20"
-        }, 2000, () => {
-            loadingPanel.hide();
-            res(1);
+        }, 1000, () => {
+            abrirFolioEdicion();
+            loadingPanel.animate({
+                left: "-50%",
+                display: "toggle"
+            }, 1000, () => {
+                //loadingPanel.hide();
+                res(1);
+            })
         });
-        //setTimeout(() => {
-        //    
-        //    res(1);
-        //}, 2000);
+    });
+}
+
+async function createLeftMenu() {
+    menuConfig.forEach(elem => {
+        let el = $('<div/>', {
+            class: 'editor-menu-opt',
+            text: elem.name
+        })
+        MenuEditor.children('.editor_contenedor').append(el)
     });
 }
 
@@ -116,7 +139,7 @@ async function abrirFolioEdicion() {
         class: 'editor_main'
     });
 
-    let MenuEditor = $('<div/>', { class: 'editor_left_menu' });
+    MenuEditor = $('<div/>', { class: 'editor_left_menu' });
     MenuEditor.append($('<div/>', { class: 'editor_contenedor' }));
 
     let FolioEdicion = $('<div/>', { class: 'editor_folio_edicion' });
@@ -146,6 +169,10 @@ async function abrirFolioEdicion() {
     });
     $('body').css('background', '#ccc');
     $('body').append(EditorMain);
+    EditorMain.animate({
+        margin: 0,
+        opacity: 1
+    }, 1000);
 }
 
 async function getNodeData(path) {

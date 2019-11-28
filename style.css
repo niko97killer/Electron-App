@@ -6,6 +6,7 @@ body {
     margin: 0px;
     /*font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;*/
     font-family: 'Rubik', sans-serif;
+    overflow: hidden;
 }
 
 
@@ -78,17 +79,19 @@ li:hover {
     width: 100%;
     display: flex;
     background: #fff;
+    margin-left: 30%;
+    opacity: 0;
 }
 
 .editor_left_menu {
-    width: 25%;
+    width: 20%;
     height: 100vh;
     overflow-y: auto;
     border-right: 1px solid #dadada;
 }
 
 .editor_folio_edicion {
-    width: 75%;
+    width: 80%;
     height: 100vh;
     overflow-y: auto;
     background: #fff7f7;
@@ -129,4 +132,22 @@ li:hover {
     top: 50%;
     text-align: center;
     transform: translate(-50%, -50%);
+}
+
+.editor-menu-opt {
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #dadada;
+    font-size: 15px;
+    padding-left: 30px;
+    background-image: url('https://img.icons8.com/carbon-copy/2x/arrow.png');
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    background-size: 10px;
+    cursor: pointer;
+    transition: .1s;
+}
+
+.editor-menu-opt:hover {
+    background-position: 15px 50%;
 }
