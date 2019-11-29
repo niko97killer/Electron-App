@@ -30,6 +30,7 @@ let clickedElem = null;
 
 $(document).ready(async() => {
     loadApp();
+    //loadAppPrueba();
 });
 
 async function loadAppPrueba() {
